@@ -418,5 +418,188 @@
       "error": null
     },
     "stored_at": "2026-01-31T19:07:43.414671+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "3f933ebd-2e37-4d80-a1e4-6c20d5401273",
+      "plan_id": "922d4a98-31a7-443e-87a5-5ae03ace596f",
+      "status": "success",
+      "executed_at": "2026-02-01 01:03:56.676090",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: "
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T19:33:56.676225+00:00"
+  },
+  {
+    "pattern_key": "payment_gateway_timeout",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "58eb16b3-3912-48e8-9e58-f4c0dc874f1f",
+      "plan_id": "594d82db-ff22-4f60-bfb3-d090f26806f5",
+      "status": "success",
+      "executed_at": "2026-02-01 01:05:37.956304",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T19:35:37.956388+00:00"
+  },
+  {
+    "pattern_key": "service_unavailable",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "6d79221c-9569-4050-aebd-e325ef28a199",
+      "plan_id": "2e9b69ee-aad0-476b-af74-13e53f2e95c5",
+      "status": "success",
+      "executed_at": "2026-02-01 01:05:50.306663",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T19:35:50.306734+00:00"
+  },
+  {
+    "pattern_key": "payment_processing_error",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "692e77cb-c8ef-4f10-acae-0e49703bdc5c",
+      "plan_id": "d2d4ca72-59dc-4022-ae61-bb99d4096c83",
+      "status": "success",
+      "executed_at": "2026-02-01 01:06:03.445046",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T19:36:03.445099+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: exact_match:uncaught error: product price calculation failed -",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "1cac9086-014f-4b94-b7f9-8b0ad82c5769",
+      "plan_id": "2e0ad5f9-983f-4088-8bc3-43bcb0e22e13",
+      "status": "success",
+      "executed_at": "2026-02-01 01:28:51.746238",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: exact_match:uncaught error: product price calculation failed -"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T19:58:51.746400+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "af9b7e08-1c8b-4c75-80ec-33e2201cedb4",
+      "plan_id": "9bf5c63b-8eaf-475c-9c52-bd5e3c6e2c9e",
+      "status": "success",
+      "executed_at": "2026-02-01 01:30:02.954881",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T20:00:02.955035+00:00"
+  },
+  {
+    "pattern_key": "payment_gateway_timeout",
+    "root_cause": "external service failure",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "98677ae7-cc90-45bb-bd32-840ec7caab45",
+      "plan_id": "700a704b-a5f3-453c-bb18-a60737a5c958",
+      "status": "success",
+      "executed_at": "2026-02-01 01:32:13.527599",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: external service failure"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T20:02:13.527738+00:00"
+  },
+  {
+    "pattern_key": "service_unavailable",
+    "root_cause": "external service failure",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.95,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "188317e0-770f-4965-b946-a44d1f789fb4",
+      "plan_id": "d4fe85b6-af3d-4905-b359-439af6340dd4",
+      "status": "success",
+      "executed_at": "2026-02-01 01:32:21.771684",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: external service failure"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T20:02:21.771751+00:00"
+  },
+  {
+    "pattern_key": "payment_processing_error",
+    "root_cause": "external service failure",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "c84fc756-5479-4980-a1fc-11620fdd6ad6",
+      "plan_id": "f5d188fe-04c9-45af-8e5d-f96c48dba1be",
+      "status": "success",
+      "executed_at": "2026-02-01 01:32:30.143107",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: external service failure"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T20:02:30.143183+00:00"
   }
 ]

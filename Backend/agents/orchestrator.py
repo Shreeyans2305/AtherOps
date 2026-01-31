@@ -1,5 +1,5 @@
 # agents/orchestrator.py - Coordinates the agent pipeline
-from agents.observer import ObserverAgent
+from agents.observer_hybrid import HybridObserverAgent  # Changed
 from agents.reasoner import ReasonerAgent
 from agents.decision import DecisionAgent
 from agents.executor import ExecutorAgent
@@ -14,7 +14,7 @@ class AgentOrchestrator:
         self.working_memory = WorkingMemory()
         self.long_memory = LongTermMemory()
         
-        self.observer = ObserverAgent(self.working_memory)
+        self.observer = HybridObserverAgent(self.working_memory)
         self.reasoner = ReasonerAgent(self.working_memory, self.long_memory)
         self.decision = DecisionAgent(self.working_memory)
         self.executor = ExecutorAgent()
