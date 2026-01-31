@@ -1,0 +1,422 @@
+[
+  {
+    "pattern_key": "javascript_error:Uncaught Error: Product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "58cb145b-8808-4a1d-9e6e-f3fd6c30075a",
+      "plan_id": "cd782582-d382-4421-ac0c-a8c56ef80ad9",
+      "status": "success",
+      "executed_at": "2026-01-31 23:51:08.941516",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:21:08.941890+00:00"
+  },
+  {
+    "pattern_key": "javascript_error:Uncaught Error: Product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "f9957f0d-2a49-4e2e-97b4-45fa09fed7cf",
+      "plan_id": "8026efed-1fd0-415b-8ef2-3599010c75fb",
+      "status": "success",
+      "executed_at": "2026-01-31 23:52:33.802892",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:22:33.803035+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "5ed1baa4-649f-4747-af6c-2510e730df2c",
+      "plan_id": "0d8b58b3-2e6d-4ba6-bd57-f34430aac5c2",
+      "status": "success",
+      "executed_at": "2026-01-31 23:52:44.425712",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:22:44.425967+00:00"
+  },
+  {
+    "pattern_key": "payment_failure:Payment gateway timeout - error code 503",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "b7f7269d-3db7-4c93-bbec-1c9e39ffab9a",
+      "plan_id": "894821b9-5842-49b6-bc35-4dd86bcfe5aa",
+      "status": "success",
+      "executed_at": "2026-01-31 23:52:57.259916",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:22:57.259967+00:00"
+  },
+  {
+    "pattern_key": "javascript_error:Uncaught Error: Product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "93104c69-314d-4ac0-9177-9e3560475d08",
+      "plan_id": "43e8a788-fd3a-4b11-9f36-9e72fa5a5d47",
+      "status": "success",
+      "executed_at": "2026-01-31 23:53:38.709103",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:23:38.709369+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "7c763c42-5345-4678-a504-8448249c9373",
+      "plan_id": "9626fa24-0e23-4d26-a425-a0e0da695c63",
+      "status": "success",
+      "executed_at": "2026-01-31 23:53:50.389886",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:23:50.390013+00:00"
+  },
+  {
+    "pattern_key": "payment_failure:Payment gateway timeout - error code 503",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "afae6bf8-fe59-4f7a-85e2-38006ad0be9d",
+      "plan_id": "bcda1939-1fef-4766-86b1-5e3e7df6b8b0",
+      "status": "success",
+      "executed_at": "2026-01-31 23:54:03.019391",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:24:03.019461+00:00"
+  },
+  {
+    "pattern_key": "javascript_error:Uncaught Error: Product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "53414f30-4481-4db5-8506-2fcaf2972ef3",
+      "plan_id": "ff1f1f33-2531-4b4e-b9e9-51e68fd38d20",
+      "status": "success",
+      "executed_at": "2026-01-31 23:54:46.290164",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:24:46.290277+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "b4127039-5700-4a00-8af5-9f9a511c5a21",
+      "plan_id": "838cc534-4e66-4e4f-b56a-dc59a094a01a",
+      "status": "success",
+      "executed_at": "2026-01-31 23:54:59.902169",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:24:59.902339+00:00"
+  },
+  {
+    "pattern_key": "payment_failure:Payment gateway timeout - error code 503",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "8b19102b-de73-48de-963d-4e23c8ba17e8",
+      "plan_id": "813336bd-c420-4a57-8892-743d8a082ee5",
+      "status": "success",
+      "executed_at": "2026-01-31 23:55:09.808673",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:25:09.808731+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "45849f91-a857-46b4-bfa0-35f33c1a42db",
+      "plan_id": "37cacaf8-f859-474a-9c30-5852cfede06d",
+      "status": "success",
+      "executed_at": "2026-01-31 23:56:47.518553",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:26:47.518682+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "0983ce07-1372-4242-b190-dd1ee30db2fa",
+      "plan_id": "1ddcb3cd-d751-43df-ba0e-cfbd0dd5921d",
+      "status": "success",
+      "executed_at": "2026-01-31 23:57:28.856732",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:27:28.856865+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "1a85624f-013d-459c-90ec-735b10255937",
+      "plan_id": "fb039d64-5ba3-48c3-8eb3-4622e701927f",
+      "status": "success",
+      "executed_at": "2026-01-31 23:58:10.914607",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:28:10.914702+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "f7729941-f08b-4c97-a4af-af69e3405265",
+      "plan_id": "535ee54e-a954-4a3e-810d-c0e7f3805ffc",
+      "status": "success",
+      "executed_at": "2026-01-31 23:58:51.738787",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:28:51.738915+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "6fd6b1dc-2ea9-42f3-bd26-9bcf534ebbda",
+      "plan_id": "8c17790f-c932-4062-a301-2bb0f5baa7ae",
+      "status": "success",
+      "executed_at": "2026-01-31 23:59:33.222299",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:29:33.222644+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "f164b74d-568b-4f1d-9d48-1ec8971a407f",
+      "plan_id": "920fa072-97a5-4c30-8ecc-efe58765aee5",
+      "status": "success",
+      "executed_at": "2026-02-01 00:00:56.427209",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:30:56.427367+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "50b06f96-e885-4753-989b-6baf02be0785",
+      "plan_id": "1615d827-f931-4869-9546-82b22dd68637",
+      "status": "success",
+      "executed_at": "2026-02-01 00:08:12.716623",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:38:12.716828+00:00"
+  },
+  {
+    "pattern_key": "javascript_error:Uncaught Error: Product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "eb6a76a8-b2c7-4dea-a3c2-67f2087a3026",
+      "plan_id": "9004b004-1948-4dc5-905b-7a6374c6ed9e",
+      "status": "success",
+      "executed_at": "2026-02-01 00:12:01.385483",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:42:01.385614+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "971f686a-2ea9-412f-88f6-843acae74428",
+      "plan_id": "01f82d26-1c91-4d33-bf48-1a13192a52ca",
+      "status": "success",
+      "executed_at": "2026-02-01 00:12:44.792324",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:42:44.792450+00:00"
+  },
+  {
+    "pattern_key": "payment_failure:Payment gateway timeout - error code 503",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "da85bb4c-56ef-4781-b047-a0c74789c2a9",
+      "plan_id": "38d58963-63f7-407e-a434-796ce1bf0407",
+      "status": "success",
+      "executed_at": "2026-02-01 00:12:57.620561",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T18:42:57.620610+00:00"
+  },
+  {
+    "pattern_key": "api_error:Network error: Failed to fetch",
+    "root_cause": "unknown",
+    "action_taken": "support_guidance",
+    "resolution": "support_guidance",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "982893e7-816b-45d4-974e-03cae9c8cf74",
+      "plan_id": "f6d8e8cd-e3b2-4145-ad0b-a08d2a57f220",
+      "status": "success",
+      "executed_at": "2026-02-01 00:37:43.414538",
+      "result_details": {
+        "channel": "#support",
+        "message": "Create support article: unknown"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T19:07:43.414671+00:00"
+  }
+]

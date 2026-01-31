@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Healing Agent Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 20px;
+            padding: 20px;
+            height: 100vh;
+        }
+        
+        .header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .status {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .status-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .status-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .panel {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .panel h2 {
+            margin-bottom: 15px;
+            color: #94a3b8;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .signal {
+            background: #334155;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid #64748b;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .signal.severity-critical { border-left-color: #ef4444; }
+        .signal.severity-high { border-left-color: #f97316; }
+        .signal.severity-medium { border-left-color: #f59e0b; }
+        .signal.severity-low { border-left-color: #10b981; }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .signal-time {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+        
+        .signal-merchant {
+            font-weight: 600;
+            color: #60a5fa;
+        }
+        
+        .alert-card {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border: 2px solid #ef4444;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.8); }
+        }
+        
+        .alert-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .badge-critical { background: #7f1d1d; color: #fca5a5; }
+        .badge-auto { background: #14532d; color: #86efac; }
+        .badge-pending { background: #78350f; color: #fed7aa; }
+        
+        .btn {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background: #2563eb;
+        }
+        
+        .connection-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .connected { background: #10b981; color: white; }
+        .disconnected { background: #ef4444; color: white; }
+        
+        .analysis {
+            background: rgba(0,0,0,0.3);
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 13px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="connection-status disconnected" id="connectionStatus">
+        🔴 Disconnected
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Real-Time Self-Healing Agent Dashboard</h1>
+            <div class="status">
+                <div class="status-item">
+                    <div class="status-value" id="signalCount">0</div>
+                    <div>Signals Received</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-value" id="patternCount">0</div>
+                    <div>Patterns Detected</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-value" id="merchantCount">0</div>
+                    <div>Active Merchants</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel">
+            <h2>📡 Live Signal Feed</h2>
+            <div id="signalFeed"></div>
+        </div>
+        
+        <div class="panel">
+            <h2>🚨 AI Pattern Alerts</h2>
+            <div id="alertFeed"></div>
+        </div>
+    </div>
+    
+    <script>
+        let ws = null;
+        let signalCount = 0;
+        let patternCount = 0;
+        let merchants = new Set();
+        
+        function connect() {
+            ws = new WebSocket('ws://localhost:8000/ws/dashboard');
+            
+            ws.onopen = () => {
+                console.log('✅ Connected to healing platform');
+                document.getElementById('connectionStatus').className = 'connection-status connected';
+                document.getElementById('connectionStatus').textContent = '🟢 Connected';
+            };
+            
+            ws.onmessage = (event) => {
+                const message = JSON.parse(event.data);
+                
+                if (message.type === 'initial_signals') {
+                    // Load recent signals
+                    message.data.forEach(signal => addSignal(signal));
+                } else if (message.type === 'new_signal') {
+                    // New signal arrived
+                    addSignal(message.data);
+                } else if (message.type === 'pattern_alert') {
+                    // AI detected a pattern!
+                    addAlert(message.data);
+                }
+            };
+            
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+            };
+            
+            ws.onclose = () => {
+                console.log('Disconnected, reconnecting...');
+                document.getElementById('connectionStatus').className = 'connection-status disconnected';
+                document.getElementById('connectionStatus').textContent = '🔴 Reconnecting...';
+                setTimeout(connect, 3000);
+            };
+        }
+        
+        function addSignal(signal) {
+            signalCount++;
+            merchants.add(signal.merchant_id);
+            
+            // Update stats
+            document.getElementById('signalCount').textContent = signalCount;
+            document.getElementById('merchantCount').textContent = merchants.size;
+            
+            // Add to feed
+            const feed = document.getElementById('signalFeed');
+            const signalDiv = document.createElement('div');
+            signalDiv.className = `signal severity-${signal.severity || 'medium'}`;
+            
+            const time = new Date(signal.timestamp).toLocaleTimeString();
+            
+            signalDiv.innerHTML = `
+                <div class="signal-time">${time}</div>
+                <div class="signal-merchant">${signal.merchant_id}</div>
+                <div><strong>${signal.type}</strong>: ${signal.message || 'No message'}</div>
+            `;
+            
+            feed.insertBefore(signalDiv, feed.firstChild);
+            
+            // Keep only last 20 signals
+            while (feed.children.length > 20) {
+                feed.removeChild(feed.lastChild);
+            }
+        }
+        
+        function addAlert(alert) {
+            patternCount++;
+            document.getElementById('patternCount').textContent = patternCount;
+            
+            const feed = document.getElementById('alertFeed');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert-card';
+            
+            const decisionBadge = {
+                'auto_execute': 'badge-auto',
+                'needs_approval': 'badge-pending',
+                'escalate': 'badge-critical'
+            }[alert.decision] || 'badge-pending';
+            
+            const decisionText = {
+                'auto_execute': 'AUTO-EXECUTE',
+                'needs_approval': 'NEEDS APPROVAL',
+                'escalate': 'ESCALATED'
+            }[alert.decision] || 'PENDING';
+            
+            alertDiv.innerHTML = `
+                <div class="alert-title">
+                    🚨 Pattern Detected: ${alert.pattern_key}
+                    <span class="badge ${decisionBadge}">${decisionText}</span>
+                </div>
+                <div><strong>Affected:</strong> ${alert.affected_count} merchants (${alert.merchants.join(', ')})</div>
+                <div><strong>Confidence:</strong> ${alert.confidence}%</div>
+                <details>
+                    <summary style="cursor: pointer; margin-top: 10px;">View AI Analysis</summary>
+                    <div class="analysis">${alert.analysis}</div>
+                </details>
+                ${alert.decision === 'needs_approval' ? `
+                    <button class="btn" onclick="approveAlert('${alert.pattern_key}')">
+                        ✅ Approve Action
+                    </button>
+                ` : ''}
+            `;
+            
+            feed.insertBefore(alertDiv, feed.firstChild);
+        }
+        
+        function approveAlert(patternKey) {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({
+                    action: 'approve',
+                    pattern_key: patternKey
+                }));
+                alert('✅ Action approved! Merchants will be notified.');
+            }
+        }
+        
+        // Connect on load
+        connect();
+    </script>
+</body>
+</html>
