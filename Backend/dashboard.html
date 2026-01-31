@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Self-Healing Support Agent (LangGraph + Llama)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .tech-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .agent-status {
+            background: #e0e7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .agent-step {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px;
+            background: white;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .agent-step.active {
+            background: #10b981;
+            color: white;
+        }
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .issue-card {
+            background: white;
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .issue-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .status-auto { border-left: 4px solid #10b981; }
+        .status-pending { border-left: 4px solid #f59e0b; }
+        .status-escalate { border-left: 4px solid #ef4444; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .badge-auto { background: #d1fae5; color: #065f46; }
+        .badge-pending { background: #fef3c7; color: #92400e; }
+        .badge-escalate { background: #fee2e2; color: #991b1b; }
+        
+        .analysis {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            border: 1px solid #e2e8f0;
+        }
+        .merchants {
+            background: #eff6ff;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Self-Healing Support Agent</h1>
+            <p style="color: #666; margin: 10px 0;">Autonomous issue detection and resolution for headless e-commerce migration</p>
+            <div style="margin-top: 15px;">
+                <span class="tech-badge">🦙 Llama 3.2 (Local)</span>
+                <span class="tech-badge">🔗 LangGraph</span>
+                <span class="tech-badge">⚡ FastAPI</span>
+            </div>
+        </div>
+
+        <div class="agent-status">
+            <h3 style="margin-bottom: 15px;">🔄 Agent Workflow</h3>
+            <div id="workflow">
+                <span class="agent-step" id="step-observe">👁️ Observe</span>
+                <span>→</span>
+                <span class="agent-step" id="step-reason">🧠 Reason</span>
+                <span>→</span>
+                <span class="agent-step" id="step-decide">⚖️ Decide</span>
+                <span>→</span>
+                <span class="agent-step" id="step-act">✅ Act</span>
+            </div>
+        </div>
+        
+        <button class="btn" id="analyzeBtn" onclick="runAnalysis()">
+            🔍 Run Agent Analysis
+        </button>
+        
+        <div id="loading" class="loading" style="display: none;">
+            🔄 Agent is analyzing patterns... This may take 30-60 seconds with local Llama
+        </div>
+        
+        <div id="issues"></div>
+    </div>
+
+    <script>
+        async function runAnalysis() {
+            const btn = document.getElementById('analyzeBtn');
+            const loading = document.getElementById('loading');
+            const issuesContainer = document.getElementById('issues');
+            
+            btn.disabled = true;
+            loading.style.display = 'block';
+            issuesContainer.innerHTML = '';
+            
+            // Animate workflow steps
+            const steps = ['observe', 'reason', 'decide', 'act'];
+            for (let i = 0; i < steps.length; i++) {
+                await new Promise(r => setTimeout(r, 1000));
+                document.getElementById(`step-${steps[i]}`).classList.add('active');
+            }
+            
+            try {
+                const response = await fetch('http://localhost:8000/analyze');
+                const data = await response.json();
+                
+                loading.style.display = 'none';
+                displayIssues(data.issues);
+            } catch (error) {
+                loading.innerHTML = '❌ Error: Make sure backend is running (uvicorn app:app --reload)';
+            } finally {
+                btn.disabled = false;
+            }
+        }
+        
+        function displayIssues(issues) {
+            const container = document.getElementById('issues');
+            
+            if (issues.length === 0) {
+                container.innerHTML = '<div class="issue-card">✅ No patterns detected requiring attention</div>';
+                return;
+            }
+            
+            issues.forEach((issue, idx) => {
+                const statusClass = {
+                    'auto_execute': 'status-auto',
+                    'needs_approval': 'status-pending',
+                    'escalate': 'status-escalate'
+                }[issue.decision] || 'status-pending';
+                
+                const badgeClass = {
+                    'auto_execute': 'badge-auto',
+                    'needs_approval': 'badge-pending',
+                    'escalate': 'badge-escalate'
+                }[issue.decision] || 'badge-pending';
+                
+                const badgeText = {
+                    'auto_execute': 'AUTO-EXECUTE',
+                    'needs_approval': 'NEEDS APPROVAL',
+                    'escalate': 'ESCALATED'
+                }[issue.decision] || 'PENDING';
+                
+                const card = document.createElement('div');
+                card.className = `issue-card ${statusClass}`;
+                card.innerHTML = `
+                    <h3>
+                        🔴 Issue #${idx + 1}: ${issue.error_pattern.substring(0, 60)}...
+                        <span class="badge ${badgeClass}">${badgeText}</span>
+                    </h3>
+                    
+                    <div class="merchants">
+                        <strong>📊 Impact:</strong> ${issue.affected_count} merchants affected<br>
+                        <strong>🏪 Merchant IDs:</strong> ${issue.merchants.join(', ')}
+                    </div>
+                    
+                    <p style="margin: 15px 0;">
+                        <strong>💡 Recommended Action:</strong> ${issue.action_detail}
+                    </p>
+                    
+                    <details>
+                        <summary style="cursor: pointer; font-weight: 600; margin: 10px 0;">
+                            📋 Full AI Analysis (click to expand)
+                        </summary>
+                        <div class="analysis">${issue.analysis}</div>
+                    </details>
+                    
+                    ${issue.decision === 'needs_approval' ? `
+                        <button class="btn" onclick="approveAction(${idx})" style="margin-top: 15px;">
+                            ✅ Approve This Action
+                        </button>
+                    ` : ''}
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        async function approveAction(id) {
+            const response = await fetch(`http://localhost:8000/approve/${id}`, {
+                method: 'POST'
+            });
+            const data = await response.json();
+            alert('✅ ' + data.message);
+        }
+    </script>
+</body>
+</html>
