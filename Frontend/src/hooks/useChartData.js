@@ -74,8 +74,15 @@ const useChartData = (events = []) => {
 
     // Add a single new event to chart data
     const addEvent = useCallback((event) => {
+        if (!event || !event.timestamp) {
+            console.warn('Skipping chart update for invalid event:', event);
+            return;
+        }
+
         setChartData(prevData => {
             const eventTime = new Date(event.timestamp);
+            if (isNaN(eventTime.getTime())) return prevData; // Invalid date check
+
             const eventHour = new Date(eventTime);
             eventHour.setMinutes(0, 0, 0);
             const eventHourISO = eventHour.toISOString();
@@ -84,7 +91,17 @@ const useChartData = (events = []) => {
             const bucketIndex = updatedData.findIndex(bucket => bucket.hour === eventHourISO);
 
             if (bucketIndex !== -1) {
+                // Create a copy of the bucket to avoid mutating read-only state
+                updatedData[bucketIndex] = { ...updatedData[bucketIndex] };
+
                 const source = event.source?.toLowerCase() || '';
+
+                // Debug log for classification
+                if (source === 'ticket') {
+                    console.log('Processing TICKET event:', event);
+                } else if (source === '') {
+                    console.warn('Event missing source:', event);
+                }
 
                 if (source === 'ticket' || event.event_type === 'ticket') {
                     updatedData[bucketIndex].tickets++;

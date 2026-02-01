@@ -40,7 +40,7 @@ const ObservationCard = ({ observation }) => {
                 <div className="observation-stats">
                     <div className="stat-item">
                         <AlertCircle size={14} />
-                        <span>{observation.event_count} events</span>
+                        <span>{observation.event_count || 0} events</span>
                     </div>
                     <div className="stat-item">
                         <Users size={14} />
@@ -57,14 +57,14 @@ const ObservationCard = ({ observation }) => {
                     <div className="observation-details">
                         <div className="detail-section">
                             <strong>Pattern Key:</strong>
-                            <code>{observation.pattern_key}</code>
+                            <code>{observation.pattern_key || 'unknown_pattern'}</code>
                         </div>
 
                         <div className="detail-section">
                             <strong>Timeline:</strong>
                             <div className="timeline-info">
-                                <span>First seen: {formatTimestamp(observation.first_seen)}</span>
-                                <span>Last seen: {formatTimestamp(observation.last_seen)}</span>
+                                <span>First seen: {observation.first_seen ? formatTimestamp(observation.first_seen) : 'N/A'}</span>
+                                <span>Last seen: {observation.last_seen ? formatTimestamp(observation.last_seen) : 'N/A'}</span>
                             </div>
                         </div>
 
@@ -88,8 +88,8 @@ const ObservationCard = ({ observation }) => {
                                 <div className="event-samples">
                                     {observation.events.slice(0, 3).map((event, idx) => (
                                         <div key={idx} className="event-sample">
-                                            <span className="event-type">{event.event_type}</span>
-                                            <span className="event-message">{event.message?.substring(0, 80)}...</span>
+                                            <span className="event-type">{event.event_type || 'event'}</span>
+                                            <span className="event-message">{(event.message || 'No message').substring(0, 80)}...</span>
                                         </div>
                                     ))}
                                 </div>

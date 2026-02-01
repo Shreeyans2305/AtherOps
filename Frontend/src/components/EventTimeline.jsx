@@ -90,24 +90,25 @@ const EventTimeline = ({ events = [] }) => {
             <div className="timeline-header">
                 <Clock size={18} />
                 <h3>Event Timeline</h3>
-                <span className="event-count">{events.length}</span>
+                <span className="event-count">{events?.length || 0}</span>
             </div>
 
             <div className="timeline-content" ref={timelineRef}>
-                {events.map((event, index) => {
-                    const Icon = getEventIcon(event.event_type);
+                {events?.map((event, index) => {
+                    const Icon = getEventIcon(event.event_type || 'unknown');
+                    const eventId = event.event_id || event.id || `evt-${index}-${Date.now()}`;
 
                     return (
-                        <div key={event.event_id || index} className="timeline-item">
+                        <div key={eventId} className="timeline-item">
                             <div className="timeline-icon">
                                 <Icon size={16} />
                             </div>
 
                             <div className="timeline-details">
                                 <div className="timeline-header-row">
-                                    <StatusBadge status={event.severity || 'medium'} />
+                                    <StatusBadge status={event.severity || 'low'} />
                                     <span className="timeline-time">
-                                        {formatTimestamp(event.timestamp)}
+                                        {event.timestamp ? formatTimestamp(event.timestamp) : 'Just now'}
                                     </span>
                                 </div>
 
@@ -116,7 +117,7 @@ const EventTimeline = ({ events = [] }) => {
                                 </div>
 
                                 <div className="timeline-meta">
-                                    <span className="timeline-type">{event.event_type}</span>
+                                    <span className="timeline-type">{event.event_type || 'event'}</span>
                                     {event.merchant_id && (
                                         <>
                                             <span className="timeline-separator">•</span>

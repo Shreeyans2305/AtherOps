@@ -1,64 +1,81 @@
 .metric-card {
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    transition: all var(--transition-base);
+    background-color: #000;
+    border: none;
+    /* Borders handled by grid container gap */
+    border-radius: 0;
+    padding: 12px 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .metric-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    background-color: var(--color-bg-tertiary);
+    /* Subtle highlight only */
+    transform: none;
+    /* No movement */
+    box-shadow: none;
 }
 
 .metric-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: var(--space-sm);
+    margin-bottom: 8px;
 }
 
 .metric-title {
-    font-size: var(--font-size-sm);
+    font-size: 11px;
     color: var(--color-text-secondary);
-    font-weight: var(--font-weight-medium);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .metric-icon {
-    color: var(--color-text-tertiary);
+    color: var(--color-accent-blue);
+    opacity: 0.5;
 }
 
 .metric-value {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
+    font-size: 24px;
+    font-weight: 900;
     color: var(--color-text-primary);
-    margin-bottom: var(--space-sm);
+    margin-bottom: 4px;
     line-height: 1;
+    font-family: var(--font-family-mono);
+    letter-spacing: -0.05em;
 }
 
 .metric-footer {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    justify-content: space-between;
 }
 
 .metric-trend {
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 4px;
+    border-radius: 0;
 }
 
 .metric-trend.positive {
     color: var(--color-accent-green);
+    background-color: rgba(16, 185, 129, 0.1);
 }
 
 .metric-trend.negative {
     color: var(--color-accent-red);
+    background-color: rgba(239, 68, 68, 0.1);
 }
 
 .metric-subtitle {
-    font-size: var(--font-size-xs);
+    font-size: 10px;
     color: var(--color-text-tertiary);
+    text-transform: uppercase;
 }

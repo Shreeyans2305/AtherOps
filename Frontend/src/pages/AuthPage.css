@@ -1,0 +1,73 @@
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-tertiary) 100%);
+    padding: var(--space-xl);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: var(--space-md);
+}
+
+.auth-logo {
+    height: 64px;
+    width: auto;
+    margin-bottom: var(--space-md);
+    object-fit: contain;
+}
+
+.auth-subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* Clerk Component Styling */
+.clerk-root {
+    width: 100%;
+}
+
+.clerk-card {
+    background-color: #111111 !important;
+    /* Slightly lighter than pure black bg */
+    border: 1px solid #404040 !important;
+    /* Brighter border */
+    border-radius: 0 !important;
+    /* Strict sharp edges */
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.5), 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+    /* Blue ring + deep shadow */
+}
+
+/* Theme-aware Clerk styling */
+[data-theme="dark"] .clerk-card {
+    background-color: #111111 !important;
+    border-color: #404040 !important;
+}
+
+[data-theme="light"] .clerk-card {
+    background-color: #ffffff !important;
+    border-color: #e5e7eb !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-page {
+        padding: var(--space-md);
+    }
+
+    .auth-title {
+        font-size: var(--font-size-2xl);
+    }
+}

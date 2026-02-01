@@ -1,0 +1,181 @@
+/* LogFeed.css - Bloomberg Terminal Aesthetic */
+.log-feed-container {
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 0;
+    /* Sharp edges */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+    font-size: 12px;
+}
+
+.log-feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #111;
+    border-bottom: 1px solid #333;
+    min-height: 32px;
+}
+
+.log-header-title {
+    color: #94a3b8;
+    /* Slate 400 */
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.log-header-counter {
+    color: #64748b;
+    /* Slate 500 */
+    font-size: 11px;
+}
+
+.log-rows-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for the container */
+.log-rows-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.log-rows-container::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+.log-rows-container::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+.log-row {
+    display: flex;
+    align-items: flex-start;
+    /* Align top for multiline messages */
+    padding: 4px 12px;
+    border-bottom: 1px solid #1a1a1a;
+    transition: background-color 0.1s;
+    line-height: 1.5;
+}
+
+.log-row:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Severity Styles */
+.log-row.severity-critical {
+    background-color: rgba(127, 29, 29, 0.2);
+    /* Red 900 / 20% */
+}
+
+.log-row.severity-critical .col-level {
+    color: #ef4444;
+    /* Red 500 */
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+.log-row.severity-high {
+    color: #fca5a5;
+    /* Red 300 */
+}
+
+.log-row.severity-high .col-level {
+    color: #f87171;
+    /* Red 400 */
+}
+
+.log-row.severity-medium,
+.log-row.severity-warning {
+    color: #fdba74;
+    /* Orange 300 */
+}
+
+.log-row.severity-medium .col-level,
+.log-row.severity-warning .col-level {
+    color: #f59e0b;
+    /* Amber 500 */
+}
+
+.log-row.severity-low,
+.log-row.severity-info {
+    color: #cbd5e1;
+    /* Slate 300 */
+}
+
+.log-row.severity-low .col-level,
+.log-row.severity-info .col-level {
+    color: #94a3b8;
+    /* Slate 400 */
+}
+
+/* Columns */
+.col-timestamp {
+    color: #64748b;
+    /* Slate 500 */
+    width: 64px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    user-select: none;
+}
+
+.col-level {
+    width: 48px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    text-align: left;
+}
+
+.col-service {
+    color: #475569;
+    /* Slate 600 */
+    width: 80px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    text-transform: lowercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.col-message {
+    color: #e2e8f0;
+    /* Slate 200 */
+    flex: 1;
+    word-break: break-word;
+    /* Prevent overflow */
+    white-space: pre-wrap;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .col-service {
+        display: none;
+        /* Hide service on small screens */
+    }
+
+    .col-timestamp {
+        width: 50px;
+        font-size: 10px;
+        margin-right: 8px;
+    }
+
+    .col-level {
+        width: 36px;
+        font-size: 10px;
+        margin-right: 8px;
+    }
+
+    .log-row {
+        padding: 4px 8px;
+    }
+}

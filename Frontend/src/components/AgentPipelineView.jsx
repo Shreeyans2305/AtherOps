@@ -11,14 +11,16 @@ const AgentPipelineView = ({ agentSteps = [] }) => {
 
     // Get the latest status for each agent
     const getAgentStatus = (agentId) => {
-        const agentStepsFiltered = agentSteps.filter(step => step.agent === agentId);
+        if (!agentSteps || !Array.isArray(agentSteps)) return { status: 'idle', result: null };
+
+        const agentStepsFiltered = agentSteps.filter(step => step && step.agent === agentId);
         if (agentStepsFiltered.length === 0) return { status: 'idle', result: null };
 
         const latestStep = agentStepsFiltered[agentStepsFiltered.length - 1];
         return {
-            status: latestStep.status,
+            status: latestStep.status || 'idle',
             result: latestStep.result,
-            timestamp: latestStep.timestamp,
+            timestamp: latestStep.timestamp || Date.now(),
             ...latestStep
         };
     };

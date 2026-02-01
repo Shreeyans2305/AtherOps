@@ -96,7 +96,7 @@ const ActionPlanCard = ({ plan, executionResult, emailData }) => {
                                 <strong>Title:</strong> {plan.action_details.title}
                             </div>
                         )}
-                        {plan.action_details.recipients && (
+                        {plan.action_details.recipients && Array.isArray(plan.action_details.recipients) && (
                             <div className="detail-item">
                                 <strong>Recipients:</strong> {plan.action_details.recipients.length} merchant(s)
                             </div>

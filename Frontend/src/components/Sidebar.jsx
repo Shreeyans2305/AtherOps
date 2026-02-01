@@ -1,7 +1,8 @@
 import { Activity, BarChart3, Home, Settings } from 'lucide-react';
+import { UserButton, OrganizationSwitcher } from '@clerk/clerk-react';
 import './Sidebar.css';
 
-const Sidebar = ({ activeView, onViewChange }) => {
+const Sidebar = ({ activeView, onViewChange, user, organization }) => {
     const navItems = [
         { id: 'dashboard', label: 'Dashboard', icon: Home },
         { id: 'incidents', label: 'Incidents', icon: Activity },
@@ -13,8 +14,7 @@ const Sidebar = ({ activeView, onViewChange }) => {
         <aside className="sidebar">
             <div className="sidebar-header">
                 <div className="sidebar-logo">
-                    <div className="logo-icon">⚡</div>
-                    <span className="logo-text">AtherOps</span>
+                    <img src="/logo.png" alt="AtherOps" className="sidebar-logo-img" />
                 </div>
             </div>
 
@@ -35,12 +35,26 @@ const Sidebar = ({ activeView, onViewChange }) => {
             </nav>
 
             <div className="sidebar-footer">
-                <div className="user-info">
-                    <div className="user-avatar">A</div>
-                    <div className="user-details">
-                        <div className="user-name">Admin</div>
-                        <div className="user-email">admin@atherops.com</div>
-                    </div>
+                <div className="org-switcher">
+                    <OrganizationSwitcher
+                        appearance={{
+                            elements: {
+                                rootBox: 'org-switcher-root',
+                                organizationSwitcherTrigger: 'org-switcher-trigger'
+                            }
+                        }}
+                    />
+                </div>
+                <div className="user-button-wrapper">
+                    <UserButton
+                        appearance={{
+                            elements: {
+                                rootBox: 'user-button-root',
+                                userButtonAvatarBox: 'user-avatar-box'
+                            }
+                        }}
+                        showName={true}
+                    />
                 </div>
             </div>
         </aside>
@@ -48,3 +62,4 @@ const Sidebar = ({ activeView, onViewChange }) => {
 };
 
 export default Sidebar;
+

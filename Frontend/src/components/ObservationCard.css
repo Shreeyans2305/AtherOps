@@ -1,36 +1,56 @@
 .observation-card {
-    background-color: var(--color-bg-secondary);
+    background-color: #000;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-md);
-    margin-bottom: var(--space-md);
-    transition: all var(--transition-fast);
+    margin-bottom: 12px;
+    padding: 0;
+    transition: none;
+    position: relative;
 }
 
 .observation-card:hover {
-    border-color: var(--color-accent-blue);
-    box-shadow: var(--shadow-md);
+    border-color: var(--color-text-tertiary);
+    box-shadow: none;
 }
 
+/* Severity Indicator Strip */
+.observation-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--color-border);
+    /* Default */
+}
+
+/* Header as a data row */
 .observation-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: var(--space-md);
+    padding: 8px 12px;
+    background-color: var(--color-bg-tertiary);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 0;
+    padding-left: 16px;
+    /* Space for accent strip */
 }
 
 .observation-title-row {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: 8px;
     flex: 1;
 }
 
 .observation-title-row h4 {
     margin: 0;
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
+    font-size: 11px;
+    font-weight: 700;
     color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .expand-button {
@@ -38,143 +58,145 @@
     border: none;
     color: var(--color-text-tertiary);
     cursor: pointer;
-    padding: var(--space-xs);
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
+    padding: 2px;
+    border-radius: 0;
 }
 
 .expand-button:hover {
-    background-color: var(--color-bg-hover);
     color: var(--color-text-primary);
+    background-color: transparent;
 }
 
 .observation-body {
+    padding: 12px 16px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: 12px;
 }
 
 .observation-description {
     margin: 0;
-    font-size: var(--font-size-sm);
-    color: var(--color-text-primary);
-    line-height: 1.5;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    font-family: var(--font-family-mono);
 }
 
 .observation-stats {
     display: flex;
-    gap: var(--space-lg);
+    gap: 16px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 8px;
 }
 
 .stat-item {
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
+    gap: 6px;
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
 }
 
 .observation-confidence {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: 8px;
 }
 
 .confidence-label-text {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-secondary);
-    min-width: 80px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    min-width: 60px;
 }
 
 .observation-details {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
-    padding-top: var(--space-md);
+    gap: 12px;
+    padding-top: 8px;
+    animation: none;
+    /* No animation for instant feel */
+    background-color: #050505;
+    margin: 0 -16px -12px;
+    /* Full width bleeding */
+    padding: 12px 16px;
     border-top: 1px solid var(--color-border);
-    animation: slideDown 0.2s ease-out;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .detail-section {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: 4px;
 }
 
 .detail-section strong {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text-primary);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
 }
 
 .detail-section code {
     font-family: var(--font-family-mono);
-    font-size: var(--font-size-xs);
-    background-color: var(--color-bg-tertiary);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    color: var(--color-text-primary);
+    font-size: 11px;
+    background-color: transparent;
+    padding: 0;
+    color: var(--color-accent-blue);
+    border: none;
 }
 
 .timeline-info {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
-    font-size: var(--font-size-sm);
+    gap: 2px;
+    font-size: 11px;
     color: var(--color-text-secondary);
 }
 
 .merchant-list {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
+    gap: 4px;
 }
 
 .merchant-tag {
-    font-size: var(--font-size-xs);
+    font-size: 10px;
     font-family: var(--font-family-mono);
     background-color: var(--color-bg-tertiary);
-    padding: 4px 8px;
-    border-radius: var(--radius-sm);
+    padding: 2px 6px;
+    border: 1px solid var(--color-border);
+    border-radius: 0;
     color: var(--color-text-secondary);
 }
 
 .event-samples {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: 4px;
 }
 
 .event-sample {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: var(--space-xs);
-    background-color: var(--color-bg-tertiary);
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-xs);
+    gap: 2px;
+    padding: 6px;
+    background-color: #000;
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    font-size: 11px;
 }
 
 .event-type {
-    font-weight: var(--font-weight-semibold);
+    font-weight: 700;
     color: var(--color-accent-blue);
-    text-transform: capitalize;
+    text-transform: uppercase;
+    font-size: 9px;
 }
 
 .event-message {
     color: var(--color-text-secondary);
-    line-height: 1.4;
+    line-height: 1.3;
 }

@@ -1,25 +1,25 @@
 /* ============================================
-   AtherOps Design System - Light & Dark Themes
+   AtherOps Design System - Bloomberg Terminal Aesthetic
    ============================================ */
 
 :root {
-  /* Spacing Scale */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
+  /* Spacing Scale - Tight & Dense */
+  --space-xs: 0.2rem;
+  --space-sm: 0.4rem;
+  --space-md: 0.8rem;
+  --space-lg: 1.2rem;
+  --space-xl: 1.6rem;
+  --space-2xl: 2.4rem;
 
-  /* Typography */
-  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  /* Typography - Strict Monospace */
+  --font-family-base: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+  --font-family-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
 
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.8rem;
+  --font-size-base: 0.9rem;
+  --font-size-lg: 1.0rem;
+  --font-size-xl: 1.2rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 2rem;
 
@@ -28,95 +28,125 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-full: 9999px;
+  /* Border Radius - ZERO (Sharp Edges) */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 0px;
 
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
-  --transition-slow: 350ms ease;
+  /* Transitions - Instant/Fast */
+  --transition-fast: 100ms ease;
+  --transition-base: 150ms ease;
+  --transition-slow: 200ms ease;
 
   /* Layout */
-  --sidebar-width: 240px;
-  --header-height: 64px;
+  --sidebar-width: 260px;
+  --header-height: 48px;
 }
 
 /* ============================================
-   DARK THEME (Default)
+   DARK THEME (Default - Terminal Style)
    ============================================ */
 :root,
 [data-theme="dark"] {
   /* Backgrounds */
-  --color-bg-primary: #0a0a0a;
-  --color-bg-secondary: #141414;
-  --color-bg-tertiary: #1f1f1f;
-  --color-bg-sidebar: #0f0f0f;
-  --color-bg-hover: rgba(255, 255, 255, 0.05);
+  --color-bg-primary: #000000;
+  /* Void Black */
+  --color-bg-secondary: #0a0a0a;
+  /* Deep Charcoal */
+  --color-bg-tertiary: #111111;
+  /* Off Black */
+  --color-bg-sidebar: #050505;
+  /* Sidebar Black */
+  --color-bg-hover: #1a1a1a;
+  /* Hover State */
 
-  /* Text */
-  --color-text-primary: #f5f5f5;
-  --color-text-secondary: #a3a3a3;
-  --color-text-tertiary: #737373;
-  --color-text-inverse: #0a0a0a;
+  /* Text - High Contrast */
+  --color-text-primary: #e2e8f0;
+  /* Bright Silver */
+  --color-text-secondary: #94a3b8;
+  /* Muted Slate */
+  --color-text-tertiary: #64748b;
+  /* Dark Slate */
+  --color-text-inverse: #000000;
 
-  /* Borders */
-  --color-border: #262626;
-  --color-border-light: #1f1f1f;
+  /* Borders - Distinct & Sharp */
+  --color-border: #333333;
+  --color-border-light: #262626;
 
-  /* Accent Colors */
+  /* Accent Colors - Neon / Terminal */
   --color-accent-blue: #3b82f6;
-  --color-accent-blue-light: rgba(59, 130, 246, 0.1);
+  /* Blue 500 */
+  --color-accent-blue-light: #1e3a8a;
+  /* Blue 900 */
   --color-accent-green: #10b981;
-  --color-accent-green-light: rgba(16, 185, 129, 0.1);
+  /* Emerald 500 */
+  --color-accent-green-light: #064e3b;
+  /* Emerald 900 */
   --color-accent-red: #ef4444;
-  --color-accent-red-light: rgba(239, 68, 68, 0.1);
+  /* Red 500 */
+  --color-accent-red-light: #7f1d1d;
+  /* Red 900 */
   --color-accent-orange: #f59e0b;
-  --color-accent-orange-light: rgba(245, 158, 11, 0.1);
-  --color-accent-purple: #8b5cf6;
-  --color-accent-purple-light: rgba(139, 92, 246, 0.1);
+  /* Amber 500 */
+  --color-accent-orange-light: #78350f;
+  /* Amber 900 */
+  --color-accent-purple: #a855f7;
+  /* Purple 500 */
+  --color-accent-purple-light: #581c87;
+  /* Purple 900 */
 
   /* Chart Colors */
-  --color-chart-1: #6366f1;
+  --color-chart-1: #3b82f6;
   --color-chart-2: #8b5cf6;
   --color-chart-3: #ec4899;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  /* Shadows - REMOVED for flat look */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
 
-  /* Glassmorphism */
-  --glass-bg: rgba(20, 20, 20, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-blur: blur(10px);
+  /* Glassmorphism - Disabled for Solid Terminal Look */
+  --glass-bg: #0a0a0a;
+  --glass-border: #333333;
+  --glass-blur: none;
 }
 
 /* ============================================
-   LIGHT THEME
+   LIGHT THEME (Still Supported, but Industrial)
+   ============================================ */
+/* ============================================
+   LIGHT THEME (Industrial Light)
    ============================================ */
 [data-theme="light"] {
-  /* Backgrounds */
-  --color-bg-primary: #fafafa;
-  --color-bg-secondary: #ffffff;
-  --color-bg-tertiary: #f5f5f5;
-  --color-bg-sidebar: #ffffff;
-  --color-bg-hover: rgba(0, 0, 0, 0.03);
+  /* Backgrounds - High Contrast Industrial */
+  --color-bg-primary: #e5e7eb;
+  /* Cool Grey 200 */
+  --color-bg-secondary: #f3f4f6;
+  /* Cool Grey 100 */
+  --color-bg-tertiary: #ffffff;
+  /* White */
+  --color-bg-sidebar: #d1d5db;
+  /* Cool Grey 300 */
+  --color-bg-hover: #ffffff;
 
-  /* Text */
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #666666;
-  --color-text-tertiary: #999999;
+  /* Text - Sharp & Inky */
+  --color-text-primary: #111827;
+  /* Gray 900 */
+  --color-text-secondary: #374151;
+  /* Gray 700 */
+  --color-text-tertiary: #6b7280;
+  /* Gray 500 */
   --color-text-inverse: #ffffff;
 
-  /* Borders */
-  --color-border: #e5e5e5;
-  --color-border-light: #f0f0f0;
+  /* Borders - Distinct Grey */
+  --color-border: #9ca3af;
+  /* Gray 400 */
+  --color-border-light: #d1d5db;
+  /* Gray 300 */
 
-  /* Accent Colors - More vibrant in light mode */
+  /* Accent Colors - Slightly Darker for Light Mode readability */
   --color-accent-blue: #2563eb;
   --color-accent-blue-light: #dbeafe;
   --color-accent-green: #059669;
@@ -128,20 +158,35 @@
   --color-accent-purple: #7c3aed;
   --color-accent-purple-light: #ede9fe;
 
-  /* Chart Colors */
-  --color-chart-1: #3b82f6;
-  --color-chart-2: #8b5cf6;
-  --color-chart-3: #ec4899;
+  /* Charts - Adjusted for light BG */
+  --color-chart-1: #2563eb;
+  --color-chart-2: #7c3aed;
+  --color-chart-3: #db2777;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+  /* Helpers */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --glass-bg: #f3f4f6;
+  --glass-border: #9ca3af;
+  --glass-blur: none;
+}
 
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.1);
-  --glass-blur: blur(10px);
+/* ============================================
+   LOGO VARIANTS
+   ============================================ */
+
+/* DARK MODE LOGO: Add brightness/glow to pop against black */
+[data-theme="dark"] .sidebar-logo-img,
+[data-theme="dark"] .auth-logo {
+  filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+}
+
+/* LIGHT MODE LOGO: Ensure it's dark and distinct */
+[data-theme="light"] .sidebar-logo-img,
+[data-theme="light"] .auth-logo {
+  filter: brightness(0) invert(0);
+  /* Force black */
 }
 
 /* ============================================
@@ -155,7 +200,8 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 14px;
+  /* Slightly smaller base for density */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -164,14 +210,16 @@ body {
   font-family: var(--font-family-base);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  line-height: 1.5;
+  line-height: 1.4;
   transition: background-color var(--transition-base), color var(--transition-base);
+  letter-spacing: -0.02em;
+  /* Tighter tracking for monospace */
 }
 
-/* Scrollbar Styling */
+/* Scrollbar Styling - Thinner & Square */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -180,7 +228,8 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
-  border-radius: var(--radius-full);
+  border-radius: 0;
+  /* Square scrollbar */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -193,10 +242,10 @@ body {
   color: white;
 }
 
-/* Focus Styles */
+/* Focus Styles - Sharp */
 :focus-visible {
-  outline: 2px solid var(--color-accent-blue);
-  outline-offset: 2px;
+  outline: 1px solid var(--color-accent-blue);
+  outline-offset: 1px;
 }
 
 /* Links */
@@ -208,7 +257,7 @@ a {
 
 a:hover {
   color: var(--color-accent-blue);
-  opacity: 0.8;
+  text-decoration: underline;
 }
 
 /* Buttons */
@@ -218,6 +267,10 @@ button {
   border: none;
   background: none;
   transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
 }
 
 button:disabled {
@@ -225,16 +278,16 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Inputs */
+/* Inputs - Rectangular */
 input,
 textarea,
 select {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   color: var(--color-text-primary);
   background-color: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   padding: var(--space-sm) var(--space-md);
   transition: all var(--transition-fast);
 }
@@ -244,7 +297,8 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--color-accent-blue);
-  box-shadow: 0 0 0 3px var(--color-accent-blue-light);
+  box-shadow: none;
+  background-color: var(--color-bg-tertiary);
 }
 
 /* Code */
@@ -252,17 +306,19 @@ code,
 pre {
   font-family: var(--font-family-mono);
   background-color: var(--color-bg-tertiary);
-  border-radius: var(--radius-sm);
+  border-radius: 0;
 }
 
 code {
   padding: 2px 6px;
   font-size: 0.9em;
+  border: 1px solid var(--color-border);
 }
 
 pre {
   padding: var(--space-md);
   overflow-x: auto;
+  border: 1px solid var(--color-border);
 }
 
 /* Utility Classes */
@@ -290,12 +346,10 @@ pre {
   background-color: var(--color-bg-tertiary);
 }
 
-/* Glass Effect */
+/* Glass Effect - REDEFINED AS SOLID BLOCK */
 .glass {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
 }
 
 /* Smooth Transitions */
