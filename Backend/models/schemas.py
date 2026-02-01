@@ -16,6 +16,7 @@ class EventType(str, Enum):
     XHR_ERROR = "xhr_error"
     CHECKOUT_EVENT = "checkout_event"
     API_CALL = "api_call"
+    TICKET = "ticket"  # Added to explicitely better tracking
 
 class Severity(str, Enum):
     CRITICAL = "critical"

@@ -1,9 +1,10 @@
 # main.py - FastAPI application with all integrations
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
 from contextlib import asynccontextmanager
+from sqlalchemy.orm import Session
 import asyncio
 import json
 
@@ -17,6 +18,12 @@ from services.ticket_service import ticket_service, Ticket, TicketPriority
 from models.schemas import UnifiedEvent, EventType, Severity
 from datetime import datetime, timezone
 import uuid
+
+# Database and Authentication
+from database import get_db, init_db
+from auth import get_current_user, get_optional_user, require_organization
+import db_models
+
 
 
 # Pydantic model for ticket creation request
@@ -38,7 +45,11 @@ event_receiver = EventReceiver(event_queue)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: Start background tasks
+    # Startup: Initialize database and start background tasks
+    print("🗄️  Initializing database...")
+    init_db()
+    print("✅ Database initialized")
+    
     pipeline_task = asyncio.create_task(orchestrator.run_pipeline())
     ingestion_task = asyncio.create_task(process_event_queue())
     
@@ -84,39 +95,68 @@ async def sdk_websocket(websocket: WebSocket):
     except WebSocketDisconnect:
         print("❌ SDK disconnected")
 
-# WebSocket: Dashboard receives updates here
+# WebSocket: Dashboard receives updates here (requires authentication)
 @app.websocket("/ws/dashboard")
-async def dashboard_websocket(websocket: WebSocket):
+async def dashboard_websocket(websocket: WebSocket, token: Optional[str] = Query(None)):
     await websocket.accept()
-    orchestrator.dashboard_connections.append(websocket)
-    print("✅ Dashboard connected")
     
-    # Send current state
-    await websocket.send_text(json.dumps({
-        "type": "initial_state",
-        "observations": [obs.dict() for obs in orchestrator.working_memory.get_active_observations()],
-        "hypotheses": list(orchestrator.working_memory.hypotheses.values()),
-        "plans": list(orchestrator.working_memory.action_plans.values())
-    }, default=str))
+    # Verify authentication
+    user = None
+    if token:
+        try:
+            from auth import verify_clerk_token
+            user = verify_clerk_token(token)
+            print(f"✅ Dashboard connected - User: {user.get('email')}, Org: {user.get('org_id')}")
+        except Exception as e:
+            print(f"❌ Dashboard authentication failed: {e}")
+            await websocket.close(code=1008, reason="Authentication required")
+            return
+    else:
+        print("⚠️  Dashboard connected without authentication (development mode)")
+    
+    orchestrator.dashboard_connections.append(websocket)
     
     try:
+        # Send current state (filtered by organization if authenticated)
+        try:
+            await websocket.send_text(json.dumps({
+                "type": "initial_state",
+                "observations": [obs.dict() for obs in orchestrator.working_memory.get_active_observations()],
+                "hypotheses": list(orchestrator.working_memory.hypotheses.values()),
+                "plans": list(orchestrator.working_memory.action_plans.values()),
+                "user": user
+            }, default=str))
+        except (WebSocketDisconnect, RuntimeError, Exception) as e:
+            print(f"⚠️ Failed to send initial state (client disconnected?): {e}")
+            if websocket in orchestrator.dashboard_connections:
+                orchestrator.dashboard_connections.remove(websocket)
+            return
+    
         while True:
-            data = await websocket.receive_text()
-            command = json.loads(data)
-            
-            # Handle approval
-            if command.get("action") == "approve":
-                plan_id = command.get("plan_id")
-                plan = orchestrator.working_memory.action_plans.get(plan_id)
-                if plan:
-                    result = await orchestrator.executor.execute(plan, approved=True)
-                    await websocket.send_text(json.dumps({
-                        "type": "execution_result",
-                        "result": result.dict()
-                    }, default=str))
+            try:
+                data = await websocket.receive_text()
+                command = json.loads(data)
+                
+                # Handle approval
+                if command.get("action") == "approve":
+                    plan_id = command.get("plan_id")
+                    plan = orchestrator.working_memory.action_plans.get(plan_id)
+                    if plan:
+                        result = await orchestrator.executor.execute(plan, approved=True)
+                        await websocket.send_text(json.dumps({
+                            "type": "execution_result",
+                            "result": result.dict()
+                        }, default=str))
+            except (WebSocketDisconnect, RuntimeError):
+                raise  # Re-raise to be caught by outer block
+            except Exception as e:
+                print(f"❌ Error processing dashboard command: {e}")
+                # Don't break loop for minor processing errors
+                continue
     
     except WebSocketDisconnect:
-        orchestrator.dashboard_connections.remove(websocket)
+        if websocket in orchestrator.dashboard_connections:
+            orchestrator.dashboard_connections.remove(websocket)
         print("❌ Dashboard disconnected")
 
 @app.get("/")
@@ -229,7 +269,7 @@ async def process_ticket_through_pipeline(ticket: Ticket):
         event_id=str(uuid.uuid4()),
         merchant_id=ticket.merchant_id,
         timestamp=datetime.now(timezone.utc),
-        event_type=EventType.API_ERROR,  # Default, could be mapped from category
+        event_type=EventType.TICKET,  # Use specific type for correct frontend classification
         severity=severity,
         message=f"[TICKET] {ticket.title}: {ticket.description}",
         metadata={
@@ -247,22 +287,35 @@ async def process_ticket_through_pipeline(ticket: Ticket):
     # Add to working memory for tracking
     orchestrator.working_memory.add_event(event)
     
-    # For tickets, we create an observation directly (tickets ARE observations)
+    # Broadcast event for live chart updates
+    await orchestrator._broadcast_to_dashboard({
+        "type": "new_event",
+        "event": event.dict()
+    })
+
+    # Create observation manually since we're bypassing observer
     obs = Observation(
         observation_id=str(uuid.uuid4()),
-        pattern_key=f"ticket_{ticket.category or 'general'}_{ticket.priority}",
-        description=f"Support ticket: {ticket.title}",
-        affected_merchants=[ticket.merchant_id],
+        pattern_key=f"ticket:{event.message}",
+        description=f"User reported issue: {event.message}",
+        affected_merchants=[event.merchant_id],
         event_count=1,
-        first_seen=datetime.now(timezone.utc),
-        last_seen=datetime.now(timezone.utc),
-        severity=severity,
+        first_seen=event.timestamp,
+        last_seen=event.timestamp,
+        severity=event.severity,
         events=[event],
-        confidence=0.95  # Tickets are explicit reports - high confidence
+        confidence=1.0  # Tickets are high confidence
     )
     
     orchestrator.working_memory.add_observation(obs)
     print(f"   📋 Created observation from ticket")
+    
+    # Broadcast to dashboard
+    await orchestrator._broadcast_to_dashboard({
+        "type": "new_ticket_incident",
+        "observation": obs.dict(),
+        "ticket": ticket.dict() # Use ticket.dict() as ticket_data is not defined
+    })
     
     # STEP 2: Run through Reasoner
     print(f"\n🧠 REASONER: Analyzing ticket...")
