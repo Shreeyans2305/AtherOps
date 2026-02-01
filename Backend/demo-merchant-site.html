@@ -57,6 +57,63 @@
             Simulate Checkout Abandonment
         </button>
     </div>
+
+    <div class="section">
+        <h3>🎫 Submit Support Ticket</h3>
+        <p>Test the ticket system - issues are processed through the healing pipeline:</p>
+        
+        <div style="margin-bottom: 15px;">
+            <label><strong>Title:</strong></label><br>
+            <input type="text" id="ticketTitle" placeholder="Brief issue description" 
+                   style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label><strong>Description:</strong></label><br>
+            <textarea id="ticketDescription" rows="4" placeholder="Detailed description of the issue..."
+                      style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label><strong>Priority:</strong></label><br>
+            <select id="ticketPriority" style="padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+            </select>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label><strong>Your Email (optional):</strong></label><br>
+            <input type="email" id="ticketEmail" placeholder="your@email.com"
+                   style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label><strong>Category:</strong></label><br>
+            <select id="ticketCategory" style="padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="payment">Payment Issues</option>
+                <option value="checkout">Checkout Problems</option>
+                <option value="integration">Integration/API</option>
+                <option value="performance">Performance</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        
+        <button class="btn" onclick="submitTicket()">Submit Ticket</button>
+        <button class="btn btn-danger" onclick="submitCriticalTicket()">
+            Submit Critical Test Ticket
+        </button>
+        
+        <div id="ticketResult" style="margin-top: 15px; padding: 10px; display: none;"></div>
+    </div>
+    
+    <div class="section">
+        <h3>📋 Recent Tickets</h3>
+        <button class="btn" onclick="loadTickets()">Load Tickets</button>
+        <div id="ticketsList" style="margin-top: 15px;"></div>
+    </div>
     
     <div class="section">
         <h3>🛒 Checkout Flow</h3>
@@ -65,6 +122,170 @@
     </div>
     
     <script>
+        const API_BASE_URL = 'http://localhost:8000';
+        
+        async function submitTicket() {
+            const title = document.getElementById('ticketTitle').value;
+            const description = document.getElementById('ticketDescription').value;
+            const priority = document.getElementById('ticketPriority').value;
+            const email = document.getElementById('ticketEmail').value;
+            const category = document.getElementById('ticketCategory').value;
+            
+            if (!title || !description) {
+                alert('Please fill in the title and description');
+                return;
+            }
+            
+            const ticketData = {
+                title: title,
+                description: description,
+                merchant_id: document.getElementById('merchantId').textContent,
+                merchant_email: email || null,
+                priority: priority,
+                category: category,
+                tags: [category, 'demo'],
+                reporter_email: email || null,
+                metadata: {
+                    source: 'demo-merchant-site',
+                    user_agent: navigator.userAgent
+                }
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/tickets`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(ticketData)
+                });
+                
+                const result = await response.json();
+                
+                const resultDiv = document.getElementById('ticketResult');
+                resultDiv.style.display = 'block';
+                resultDiv.style.background = '#d4edda';
+                resultDiv.style.border = '1px solid #c3e6cb';
+                resultDiv.style.borderRadius = '4px';
+                resultDiv.innerHTML = `
+                    <strong>✅ Ticket Created Successfully!</strong><br>
+                    <small>Ticket ID: ${result.ticket_id}</small><br>
+                    <small>Status: Processing through healing pipeline...</small>
+                `;
+                
+                // Clear form
+                document.getElementById('ticketTitle').value = '';
+                document.getElementById('ticketDescription').value = '';
+                document.getElementById('ticketEmail').value = '';
+                
+                console.log('Ticket created:', result);
+            } catch (error) {
+                const resultDiv = document.getElementById('ticketResult');
+                resultDiv.style.display = 'block';
+                resultDiv.style.background = '#f8d7da';
+                resultDiv.style.border = '1px solid #f5c6cb';
+                resultDiv.innerHTML = `
+                    <strong>❌ Failed to create ticket</strong><br>
+                    <small>${error.message}</small>
+                `;
+                console.error('Error creating ticket:', error);
+            }
+        }
+        
+        async function submitCriticalTicket() {
+            // Submit a pre-filled critical ticket for testing
+            const ticketData = {
+                title: 'CRITICAL: Payment Gateway Complete Failure',
+                description: 'All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.',
+                merchant_id: document.getElementById('merchantId').textContent,
+                merchant_email: document.getElementById('ticketEmail').value || null,
+                priority: 'critical',
+                category: 'payment',
+                tags: ['critical', 'payment', 'urgent', 'platform-bug'],
+                reporter_email: document.getElementById('ticketEmail').value || null,
+                metadata: {
+                    source: 'demo-merchant-site',
+                    error_code: 503,
+                    affected_transactions: 150,
+                    estimated_revenue_loss: '$45,000',
+                    user_agent: navigator.userAgent
+                }
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/tickets`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(ticketData)
+                });
+                
+                const result = await response.json();
+                
+                const resultDiv = document.getElementById('ticketResult');
+                resultDiv.style.display = 'block';
+                resultDiv.style.background = '#fff3cd';
+                resultDiv.style.border = '1px solid #ffc107';
+                resultDiv.innerHTML = `
+                    <strong>🚨 Critical Ticket Created!</strong><br>
+                    <small>Ticket ID: ${result.ticket_id}</small><br>
+                    <small>Priority: CRITICAL - Engineering escalation triggered</small><br>
+                    <small>If email is configured, alerts will be sent to engineers.</small>
+                `;
+                
+                console.log('Critical ticket created:', result);
+            } catch (error) {
+                const resultDiv = document.getElementById('ticketResult');
+                resultDiv.style.display = 'block';
+                resultDiv.style.background = '#f8d7da';
+                resultDiv.innerHTML = `<strong>❌ Failed to create ticket</strong><br><small>${error.message}</small>`;
+                console.error('Error creating ticket:', error);
+            }
+        }
+        
+        async function loadTickets() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/tickets`);
+                const result = await response.json();
+                
+                const listDiv = document.getElementById('ticketsList');
+                
+                if (result.tickets && result.tickets.length > 0) {
+                    let html = `<p><strong>${result.count} ticket(s) found:</strong></p>`;
+                    html += '<ul style="list-style-type: none; padding: 0;">';
+                    
+                    result.tickets.forEach(ticket => {
+                        const priorityColors = {
+                            low: '#28a745',
+                            medium: '#ffc107',
+                            high: '#fd7e14',
+                            critical: '#dc3545'
+                        };
+                        
+                        html += `
+                            <li style="margin: 10px 0; padding: 10px; background: #fff; border-left: 4px solid ${priorityColors[ticket.priority]}; border-radius: 4px;">
+                                <strong>${ticket.title}</strong><br>
+                                <small>
+                                    ID: ${ticket.ticket_id.substring(0, 8)}... | 
+                                    Priority: <span style="color: ${priorityColors[ticket.priority]}; font-weight: bold;">${ticket.priority.toUpperCase()}</span> | 
+                                    Status: ${ticket.status}
+                                </small>
+                            </li>
+                        `;
+                    });
+                    
+                    html += '</ul>';
+                    listDiv.innerHTML = html;
+                } else {
+                    listDiv.innerHTML = '<p>No tickets found.</p>';
+                }
+            } catch (error) {
+                document.getElementById('ticketsList').innerHTML = `<p style="color: red;">Failed to load tickets: ${error.message}</p>`;
+                console.error('Error loading tickets:', error);
+            }
+        }
+        
         function simulateJSError() {
             // This will be caught by the SDK
             throw new Error('Product price calculation failed - undefined is not a function');

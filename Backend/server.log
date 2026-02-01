@@ -1,0 +1,103 @@
+INFO:     Started server process [58763]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61367 - "WebSocket /ws/sdk" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:61369 - "WebSocket /ws/dashboard" [accepted]
+INFO:     connection open
+📧 Email config loaded: you***@gmail.com
+🚀 Agent pipeline started
+🚀 Event ingestion started
+
+============================================================
+🔄 RUNNING AGENT PIPELINE
+============================================================
+
+👁️  OBSERVER: Analyzing recent events...
+   No significant patterns detected
+✅ SDK connected
+✅ Dashboard connected
+🎫 New ticket created: 03fbf92e-9e20-4ef0-85b4-3fa72b07344c
+   Title: CRITICAL: Payment Gateway Complete Failure
+   Priority: critical
+   Merchant: store_demo_123
+
+============================================================
+🎫 PROCESSING TICKET DIRECTLY: 03fbf92e-9e20-4ef0-85b4-3fa72b07344c
+============================================================
+   📋 Created observation from ticket
+
+🧠 REASONER: Analyzing ticket...
+   Root cause: unknown (50% confident)
+
+⚖️  DECISION: Planning action...
+   📋 Rule-based decision: engineering_escalation
+   Action: engineering_escalation (priority: critical, risk: high)
+
+✅ EXECUTOR: Auto-executing...
+   📊 Decision check: priority=critical, risk=high, is_critical=True
+   📧 Email configured: True
+   📧 Engineer emails: ['engineer1@company.com', 'engineer2@company.com']
+📧 Sending REAL engineering escalation email...
+❌ SMTP Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-353f612917csm14821662a91.8 - gsmtp')
+   📧 Email result: {'success': False, 'error': "Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-353f612917csm14821662a91.8 - gsmtp')", 'simulated': False}
+🎫 [SIMULATION] Creating Jira ticket
+   Title: [AUTO-ESCALATION] ticket_payment_critical
+   Affected: 1 merchants
+   Status: success
+   Result: {'ticket_id': 'PLAT-1801D7', 'title': '[AUTO-ESCALATION] ticket_payment_critical', 'priority': 'critical', 'email_sent': True, 'email_result': {'success': False, 'error': "Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-353f612917csm14821662a91.8 - gsmtp')", 'simulated': False}}
+
+============================================================
+✅ TICKET PROCESSING COMPLETE
+============================================================
+
+INFO:     127.0.0.1:61372 - "POST /api/tickets HTTP/1.1" 200 OK
+
+============================================================
+🔄 RUNNING AGENT PIPELINE
+============================================================
+
+👁️  OBSERVER: Analyzing recent events...
+   No significant patterns detected
+🎫 New ticket created: ad928757-4c06-4024-b525-81a8792c704e
+   Title: CRITICAL: Payment Gateway Complete Failure
+   Priority: critical
+   Merchant: store_demo_123
+
+============================================================
+🎫 PROCESSING TICKET DIRECTLY: ad928757-4c06-4024-b525-81a8792c704e
+============================================================
+   📋 Created observation from ticket
+
+🧠 REASONER: Analyzing ticket...
+   Root cause: unknown (50% confident)
+
+⚖️  DECISION: Planning action...
+   📋 Rule-based decision: engineering_escalation
+   Action: engineering_escalation (priority: critical, risk: high)
+
+✅ EXECUTOR: Auto-executing...
+   📊 Decision check: priority=critical, risk=high, is_critical=True
+   📧 Email configured: True
+   📧 Engineer emails: ['engineer1@company.com', 'engineer2@company.com']
+📧 Sending REAL engineering escalation email...
+❌ SMTP Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3543d51dbf5sm3748097a91.5 - gsmtp')
+   📧 Email result: {'success': False, 'error': "Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3543d51dbf5sm3748097a91.5 - gsmtp')", 'simulated': False}
+🎫 [SIMULATION] Creating Jira ticket
+   Title: [AUTO-ESCALATION] ticket_payment_critical
+   Affected: 1 merchants
+   Status: success
+   Result: {'ticket_id': 'PLAT-B96368', 'title': '[AUTO-ESCALATION] ticket_payment_critical', 'priority': 'critical', 'email_sent': True, 'email_result': {'success': False, 'error': "Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3543d51dbf5sm3748097a91.5 - gsmtp')", 'simulated': False}}
+
+============================================================
+✅ TICKET PROCESSING COMPLETE
+============================================================
+
+INFO:     127.0.0.1:61422 - "POST /api/tickets HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     connection closed
+INFO:     connection closed
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [58763]

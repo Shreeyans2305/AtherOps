@@ -1,0 +1,100 @@
+.visitor-chart {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+}
+
+.chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.chart-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.chart-subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.time-range-selector {
+    display: flex;
+    gap: var(--space-xs);
+    background-color: var(--color-bg-tertiary);
+    padding: var(--space-xs);
+    border-radius: var(--radius-md);
+}
+
+.range-button {
+    padding: var(--space-xs) var(--space-md);
+    border: none;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.range-button:hover {
+    color: var(--color-text-primary);
+}
+
+.range-button.active {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.chart-container {
+    margin-top: var(--space-md);
+}
+
+/* Custom Tooltip */
+.chart-tooltip {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.tooltip-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.tooltip-items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tooltip-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    font-size: var(--font-size-sm);
+}
+
+.tooltip-name {
+    font-weight: var(--font-weight-medium);
+}
+
+.tooltip-value {
+    font-weight: var(--font-weight-semibold);
+}

@@ -27,6 +27,10 @@ class ReasonerAgent:
     def reason(self, observation: Observation) -> Hypothesis:
         """Analyze observation and produce hypothesis"""
         
+        # Fast path for tickets - they already have clear descriptions
+        if observation.pattern_key.startswith("ticket_"):
+            return self._fast_reason_ticket(observation)
+        
         # Get historical context
         similar_incidents = self.long_memory.find_similar_incidents(
             observation.pattern_key
@@ -44,6 +48,51 @@ class ReasonerAgent:
         # Store in memory
         self.working_memory.add_hypothesis(hypothesis)
         
+        return hypothesis
+    
+    def _fast_reason_ticket(self, observation: Observation) -> Hypothesis:
+        """
+        Fast reasoning path for support tickets.
+        Tickets already contain user-provided descriptions, so we can skip the LLM.
+        """
+        # Extract info from ticket events
+        event = observation.events[0] if observation.events else None
+        
+        # Determine root cause from ticket metadata
+        category = observation.pattern_key.split("_")[1] if "_" in observation.pattern_key else "general"
+        
+        root_cause_map = {
+            "payment": "Payment Processing Issue",
+            "checkout": "Checkout Flow Error", 
+            "integration": "API Integration Issue",
+            "performance": "Performance Degradation",
+            "general": "General Issue Reported",
+        }
+        
+        root_cause = root_cause_map.get(category, "Issue Reported by Merchant")
+        
+        # Build diagnosis from ticket description
+        description = observation.description
+        if event and event.message:
+            # Extract description from ticket message
+            description = event.message.replace("[TICKET] ", "")
+        
+        hypothesis = Hypothesis(
+            hypothesis_id=str(uuid.uuid4()),
+            observation_id=observation.observation_id,
+            root_cause=root_cause,
+            evidence=[
+                f"Reported by merchant: {observation.affected_merchants[0] if observation.affected_merchants else 'Unknown'}",
+                f"Category: {category}",
+                f"Issue: {description[:200]}"
+            ],
+            confidence=0.90,  # Tickets are explicit reports, high confidence
+            diagnosis=description,
+            related_docs=[],
+            historical_matches=[]
+        )
+        
+        self.working_memory.add_hypothesis(hypothesis)
         return hypothesis
     
     def _build_reasoning_context(self, obs: Observation, similar: List[Dict]) -> Dict:

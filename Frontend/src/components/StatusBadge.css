@@ -1,0 +1,60 @@
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.status-badge.critical {
+    background-color: var(--color-accent-red-light);
+    color: var(--color-accent-red);
+}
+
+.status-badge.high {
+    background-color: var(--color-accent-orange-light);
+    color: var(--color-accent-orange);
+}
+
+.status-badge.medium {
+    background-color: var(--color-accent-blue-light);
+    color: var(--color-accent-blue);
+}
+
+.status-badge.low {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+}
+
+.status-badge.open {
+    background-color: var(--color-accent-blue-light);
+    color: var(--color-accent-blue);
+}
+
+.status-badge.progress {
+    background-color: var(--color-accent-purple-light);
+    color: var(--color-accent-purple);
+}
+
+.status-badge.success {
+    background-color: var(--color-accent-green-light);
+    color: var(--color-accent-green);
+}
+
+.status-badge.closed {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-tertiary);
+}
+
+.status-badge.error {
+    background-color: var(--color-accent-red-light);
+    color: var(--color-accent-red);
+}
+
+.status-badge.default {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+}

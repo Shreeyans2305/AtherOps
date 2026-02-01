@@ -601,5 +601,984 @@
       "error": null
     },
     "stored_at": "2026-01-31T20:02:30.143183+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "51be80d0-6272-44fe-b3c5-98a1740d24d0",
+      "plan_id": "43c08384-a1bf-4797-b8d2-1e9736d2cf57",
+      "status": "success",
+      "executed_at": "2026-02-01 01:52:03.619974",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T20:22:03.620441+00:00"
+  },
+  {
+    "pattern_key": "checkout_abandonment",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Checkout Abandonment",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "6dccd63a-8437-4534-b7a6-49fc2eaf46ba",
+      "plan_id": "0956085e-4a96-4974-b9f3-106046761705",
+      "status": "success",
+      "executed_at": "2026-02-01 01:54:30.897227",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Checkout Abandonment"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T20:24:30.897307+00:00"
+  },
+  {
+    "pattern_key": "payment_gateway_timeout",
+    "root_cause": "unknown",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Payment Gateway Timeout",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "b0f65f7c-aeed-4ca4-82f4-8ff2f2e1cb91",
+      "plan_id": "c0872481-25e8-4156-b3b6-2e52be77a670",
+      "status": "success",
+      "executed_at": "2026-02-01 01:59:40.651388",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Payment Gateway Timeout"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T20:29:40.651563+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "2e85fddf-c350-4010-ba98-7d9e045b3468",
+      "plan_id": "71c6a912-441b-4951-86cc-2c2e7c5beb12",
+      "status": "success",
+      "executed_at": "2026-02-01 03:43:33.825038",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:13:33.825250+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "b06027dc-535f-41c3-93ab-2762cc384d10",
+      "plan_id": "6f090607-978c-437f-a8a4-24c74a1e11f7",
+      "status": "success",
+      "executed_at": "2026-02-01 03:44:37.269612",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:14:37.269742+00:00"
+  },
+  {
+    "pattern_key": "exact_match:network error: failed to fetch",
+    "root_cause": "external service failure",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Network Error: Failed To Fetch",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "19806af1-fa30-4b6b-acc6-67c87f27823f",
+      "plan_id": "25d0dba4-146e-4f36-b76f-12d5ec88b6f8",
+      "status": "success",
+      "executed_at": "2026-02-01 03:46:13.759034",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Network Error: Failed To Fetch"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:16:13.759187+00:00"
+  },
+  {
+    "pattern_key": "service_unavailable",
+    "root_cause": "external service failure",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Service Unavailable",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "9e7722c6-7b97-4f34-b3af-3de34ab28321",
+      "plan_id": "a6286cfb-f439-4748-b08b-344bb5512bc5",
+      "status": "success",
+      "executed_at": "2026-02-01 03:46:54.450980",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Service Unavailable"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:16:54.451281+00:00"
+  },
+  {
+    "pattern_key": "exact_match:network error: failed to fetch",
+    "root_cause": "external service failure",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Network Error: Failed To Fetch",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "f03e397c-8266-427f-b7b6-aabef3b40ef0",
+      "plan_id": "ce775995-82c3-4273-914c-5a45674a12cc",
+      "status": "success",
+      "executed_at": "2026-02-01 03:48:02.092203",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Network Error: Failed To Fetch"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:18:02.092392+00:00"
+  },
+  {
+    "pattern_key": "service_unavailable",
+    "root_cause": "unknown",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Service Unavailable",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "4cb649ae-5ac9-41ea-b6a2-3726374fb5be",
+      "plan_id": "14675538-0038-4db0-8a8c-9e6ad34221f3",
+      "status": "success",
+      "executed_at": "2026-02-01 03:48:49.156887",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Service Unavailable"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:18:49.157208+00:00"
+  },
+  {
+    "pattern_key": "checkout_abandonment",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Checkout Abandonment",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "427f1753-9652-48e6-b962-e6a383435f20",
+      "plan_id": "1a114144-31c1-4c42-964e-2a045f40c993",
+      "status": "success",
+      "executed_at": "2026-02-01 03:50:18.045162",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Checkout Abandonment"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:20:18.045333+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "37234a8a-3f54-4721-adcd-8fa0d093cabe",
+      "plan_id": "3dc89d82-c5d9-46ed-8dfc-30aaab0e2b64",
+      "status": "success",
+      "executed_at": "2026-02-01 03:56:59.104174",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -"
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:26:59.104384+00:00"
+  },
+  {
+    "pattern_key": "service_unavailable",
+    "root_cause": "external service failure",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Service Unavailable",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "df309cc3-548b-4b3f-a18e-90e3cc23d1d0",
+      "plan_id": "67239552-b35a-4420-92e8-6c39eeb36fab",
+      "status": "success",
+      "executed_at": "2026-02-01 04:17:24.483689",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Service Unavailable",
+        "real_email": false,
+        "simulated": true
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:47:24.483860+00:00"
+  },
+  {
+    "pattern_key": "service_unavailable",
+    "root_cause": "external service failure",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Service Unavailable",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "bd1fbe6d-cd83-474d-b7ad-4fab20a5344c",
+      "plan_id": "28544fd6-9455-40f9-8488-cd125134de03",
+      "status": "success",
+      "executed_at": "2026-02-01 04:23:06.178206",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Service Unavailable",
+        "real_email": false,
+        "simulated": true
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T22:53:06.178401+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "unknown",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "33fb59e4-138f-4a39-a546-5b7d581f0178",
+      "plan_id": "91711869-eba5-40bc-bb17-de1055508db7",
+      "status": "success",
+      "executed_at": "2026-02-01 04:30:49.058280",
+      "result_details": {
+        "ticket_id": "PLAT-1801D7",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": false,
+          "error": "Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-353f612917csm14821662a91.8 - gsmtp')",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:00:49.058609+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "unknown",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "e89e14bd-d295-4cce-9b91-15dbed1d9383",
+      "plan_id": "141a5cf2-eb95-48fc-b53a-65388242ed33",
+      "status": "success",
+      "executed_at": "2026-02-01 04:31:25.349450",
+      "result_details": {
+        "ticket_id": "PLAT-B96368",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": false,
+          "error": "Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3543d51dbf5sm3748097a91.5 - gsmtp')",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:01:25.349782+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "external service failure",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "58320e90-3fd3-414e-a59c-0d6467edc63a",
+      "plan_id": "15337a5b-9dee-4471-a2c3-4560df9d3f9f",
+      "status": "success",
+      "executed_at": "2026-02-01 04:32:31.952719",
+      "result_details": {
+        "ticket_id": "PLAT-09C5EB",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:02:31.952972+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "external service failure",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "9cb2ab50-47f9-4834-bfbf-c80591783eb2",
+      "plan_id": "d53e7dcc-edc1-400d-9f13-ae2478d5c0b1",
+      "status": "success",
+      "executed_at": "2026-02-01 04:34:37.871513",
+      "result_details": {
+        "ticket_id": "PLAT-30CC93",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:04:37.872448+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "external service failure",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "650e1fc7-fe63-4b2c-8a51-696dbcacec89",
+      "plan_id": "ec5ada2d-6810-47b0-b05c-a8b860ff86c4",
+      "status": "success",
+      "executed_at": "2026-02-01 04:34:47.027759",
+      "result_details": {
+        "ticket_id": "PLAT-C5FB65",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:04:47.027930+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "external service failure",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "89943be0-01d4-4dda-8270-219047d47a3a",
+      "plan_id": "0a48bee3-5f00-45a0-9341-fb5040645fc6",
+      "status": "success",
+      "executed_at": "2026-02-01 04:34:56.534912",
+      "result_details": {
+        "ticket_id": "PLAT-FDB6DC",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:04:56.535207+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "external service failure",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "68acb426-e71d-475b-bd92-39a3de77e440",
+      "plan_id": "41c0cba7-ef11-4ead-adf2-b2e991d8efa2",
+      "status": "success",
+      "executed_at": "2026-02-01 04:35:06.118754",
+      "result_details": {
+        "ticket_id": "PLAT-F47999",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:05:06.118954+00:00"
+  },
+  {
+    "pattern_key": "exact_match:api slow: http://localhost:8000/api/tickets",
+    "root_cause": "unknown",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Api Slow: Http://Localhost:8000/Api/Tickets",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "ae1d891d-3331-4fa4-8b15-f392968d4df3",
+      "plan_id": "49383615-d6be-4490-b158-19933e5221a3",
+      "status": "success",
+      "executed_at": "2026-02-01 04:36:19.107514",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Api Slow: Http://Localhost:8000/Api/Tickets",
+        "real_email": false,
+        "simulated": true
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:06:19.107777+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "unknown",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "10c0a9d7-126a-484c-88d2-d9c679cdd8ee",
+      "plan_id": "84ed9b9e-bc26-4c6d-9d2d-f67429b5792f",
+      "status": "success",
+      "executed_at": "2026-02-01 04:37:34.422938",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+        "real_email": false,
+        "simulated": true
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:07:34.423861+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "external service failure",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.95,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "1d06a895-9d41-4cbf-ac06-5e35a815b227",
+      "plan_id": "ee6b4151-08ac-43c0-8078-7ef3895989c8",
+      "status": "success",
+      "executed_at": "2026-02-01 04:43:22.902470",
+      "result_details": {
+        "ticket_id": "PLAT-16FA52",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:13:22.902705+00:00"
+  },
+  {
+    "pattern_key": "ticket_integration_medium",
+    "root_cause": "unknown",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Ticket Integration Medium",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "00d09175-04aa-4ea8-8c05-993a95e6ea49",
+      "plan_id": "2eb4b82e-2a08-4be5-9e4e-212226a396fe",
+      "status": "success",
+      "executed_at": "2026-02-01 04:44:41.149620",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "shreeyans.vichare@gmail.com"
+        ],
+        "subject": "Action Required: Ticket Integration Medium",
+        "real_email": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "Action Required: Ticket Integration Medium",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:14:41.149970+00:00"
+  },
+  {
+    "pattern_key": "ticket_integration_medium",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Ticket Integration Medium",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "37d5a99c-52ac-42f6-adae-fbd79e1d40c6",
+      "plan_id": "5360e8bf-ef6a-4cb5-8abb-df23553ffe67",
+      "status": "success",
+      "executed_at": "2026-02-01 04:45:19.254981",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "shreeyans.vichare@gmail.com"
+        ],
+        "subject": "Action Required: Ticket Integration Medium",
+        "real_email": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "Action Required: Ticket Integration Medium",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:15:19.255170+00:00"
+  },
+  {
+    "pattern_key": "ticket_integration_medium",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Ticket Integration Medium",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "af03d8cf-67ea-4b6d-a357-c8898e28ebba",
+      "plan_id": "ceb45d11-06ad-4b46-931c-d07ff3cc1998",
+      "status": "success",
+      "executed_at": "2026-02-01 04:45:29.410134",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "shreeyans.vichare@gmail.com"
+        ],
+        "subject": "Action Required: Ticket Integration Medium",
+        "real_email": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "Action Required: Ticket Integration Medium",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:15:29.410287+00:00"
+  },
+  {
+    "pattern_key": "ticket_integration_medium",
+    "root_cause": "API Integration Issue",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Ticket Integration Medium",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "d61a4305-4ed8-4564-babb-6d9bb170cbcc",
+      "plan_id": "8ee7aef4-57d6-42b4-8002-9ead1db22028",
+      "status": "success",
+      "executed_at": "2026-02-01 04:45:47.882323",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "shreeyans.vichare@gmail.com"
+        ],
+        "subject": "Action Required: Ticket Integration Medium",
+        "real_email": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "Action Required: Ticket Integration Medium",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:15:47.882436+00:00"
+  },
+  {
+    "pattern_key": "ticket_integration_medium",
+    "root_cause": "API Integration Issue",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Ticket Integration Medium",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "5a0e61c4-2a4a-4dbf-bc4f-0d3a8025db41",
+      "plan_id": "cf94e8ab-ce8a-42de-b08a-7101472a7831",
+      "status": "success",
+      "executed_at": "2026-02-01 04:45:58.489428",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "shreeyans.vichare@gmail.com"
+        ],
+        "subject": "Action Required: Ticket Integration Medium",
+        "real_email": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "Action Required: Ticket Integration Medium",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:15:58.489661+00:00"
+  },
+  {
+    "pattern_key": "ticket_integration_medium",
+    "root_cause": "API Integration Issue",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Ticket Integration Medium",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "32c66f17-41d8-4eac-826d-b175bac6c3cf",
+      "plan_id": "f636a486-a7ad-4d60-b6d9-e64bcca92619",
+      "status": "success",
+      "executed_at": "2026-02-01 04:46:02.416650",
+      "result_details": {
+        "emails_sent": 1,
+        "recipients": [
+          "shreeyans.vichare@gmail.com"
+        ],
+        "subject": "Action Required: Ticket Integration Medium",
+        "real_email": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "Action Required: Ticket Integration Medium",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-01-31T23:16:02.416756+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "090beb72-c916-48ae-86cb-29f8f5b1e3bf",
+      "plan_id": "9295f21e-7012-4236-adc3-9c1470d5095a",
+      "status": "success",
+      "executed_at": "2026-02-01 05:41:59.015810",
+      "result_details": {
+        "emails_sent": 0,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+        "real_email": false,
+        "error": "No merchant email addresses provided"
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-01T00:11:59.017015+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "Payment Processing Issue",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "770ed380-5fc9-4efe-a23f-20890e826425",
+      "plan_id": "e131466d-641f-47ff-8a56-56559f6fdf52",
+      "status": "success",
+      "executed_at": "2026-02-01 05:45:13.334230",
+      "result_details": {
+        "ticket_id": "PLAT-281039",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-01T00:15:13.334371+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "Payment Processing Issue",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "af23e265-4ff5-4a49-afe4-54a8d09845ae",
+      "plan_id": "51a2a9da-5670-4d45-91ea-de2705be132f",
+      "status": "success",
+      "executed_at": "2026-02-01 05:45:16.237040",
+      "result_details": {
+        "ticket_id": "PLAT-57104E",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-01T00:15:16.237107+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "Payment Processing Issue",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "b3a5bc41-7188-4ee1-a655-77fc2e6ff0ca",
+      "plan_id": "52ea5777-7d05-458f-a857-5c7b5b4e87b0",
+      "status": "success",
+      "executed_at": "2026-02-01 05:45:19.268286",
+      "result_details": {
+        "ticket_id": "PLAT-E93441",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-01T00:15:19.268402+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "Payment Processing Issue",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "80246330-288e-472a-bd65-ea49bba4aed0",
+      "plan_id": "d67dc6d3-1c61-4d2d-ba4a-3e04763102f3",
+      "status": "success",
+      "executed_at": "2026-02-01 05:45:22.248435",
+      "result_details": {
+        "ticket_id": "PLAT-EC30FF",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-01T00:15:22.248641+00:00"
+  },
+  {
+    "pattern_key": "exact_match:api slow: http://localhost:8000/api/tickets",
+    "root_cause": "unknown",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Api Slow: Http://Localhost:8000/Api/Tickets",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "c9735e19-648b-4d9f-9b4e-b4f653a3921c",
+      "plan_id": "ecff2a1f-ca37-4cd9-b31e-bb060a63a4f4",
+      "status": "success",
+      "executed_at": "2026-02-01 05:46:11.679433",
+      "result_details": {
+        "emails_sent": 0,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Api Slow: Http://Localhost:8000/Api/Tickets",
+        "real_email": false,
+        "error": "No merchant email addresses provided"
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-01T00:16:11.688937+00:00"
+  },
+  {
+    "pattern_key": "ticket_payment_critical",
+    "root_cause": "Payment Processing Issue",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "4f870b61-adec-446f-8fed-f7b415c76857",
+      "plan_id": "df92abef-06ae-49a9-8301-94c063fba879",
+      "status": "success",
+      "executed_at": "2026-02-01 06:06:21.582309",
+      "result_details": {
+        "ticket_id": "PLAT-764183",
+        "title": "[AUTO-ESCALATION] ticket_payment_critical",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket_payment_critical",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-01T00:36:21.582399+00:00"
   }
 ]
