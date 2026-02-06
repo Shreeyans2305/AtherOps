@@ -71,6 +71,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/api/config")
+async def get_config():
+    """Expose public configuration to frontend"""
+    return {
+        "clerkPublishableKey": os.getenv("CLERK_PUBLISHABLE_KEY", "")
+    }
+
 async def process_event_queue():
     """Process events from queue and add to memory"""
     while True:
