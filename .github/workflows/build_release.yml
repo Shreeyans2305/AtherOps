@@ -60,6 +60,7 @@ jobs:
           pip install pyinstaller
 
       - name: Build Executable
+        shell: bash
         run: |
           cd Backend
           pyinstaller AtherOps.spec
