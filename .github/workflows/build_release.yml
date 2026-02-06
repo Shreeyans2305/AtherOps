@@ -1,0 +1,70 @@
+name: Build and Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: Build for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: macos-latest
+            artifact_name: AtherOps-macos
+            asset_name: AtherOps-macos
+          - os: ubuntu-latest
+            artifact_name: AtherOps-linux
+            asset_name: AtherOps-linux
+          - os: windows-latest
+            artifact_name: AtherOps-windows.exe
+            asset_name: AtherOps-windows.exe
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Frontend Build
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: Frontend/package-lock.json
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd Frontend
+          npm ci
+
+      - name: Build Frontend
+        run: |
+          cd Frontend
+          npm run build
+
+      # Backend/PyInstaller Build
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
+        run: |
+          cd Backend
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build Executable
+        run: |
+          cd Backend
+          pyinstaller AtherOps.spec
+
+      # Upload Release Asset
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: Backend/dist/${{ matrix.asset_name }}
+

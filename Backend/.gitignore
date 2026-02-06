@@ -1,2 +1,25 @@
 .env
 .env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+dist/
+build/
+*.spec
+
+# PyInstaller
+*.manifest
+*.log
+
+# Node
+node_modules/
+Frontend/dist/
+Frontend/node_modules/
+
+# OS
+.DS_Store

@@ -1,5 +1,5 @@
 // API Service for AtherOps Backend
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.PROD ? '' : 'http://localhost:8000';
 
 class ApiService {
     async request(endpoint, options = {}) {
