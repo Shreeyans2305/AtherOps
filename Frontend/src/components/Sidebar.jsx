@@ -1,4 +1,4 @@
-import { Activity, BarChart3, Home, Settings } from 'lucide-react';
+import { Activity, BarChart3, Home, Settings, ExternalLink } from 'lucide-react';
 import { UserButton, OrganizationSwitcher } from '@clerk/clerk-react';
 import './Sidebar.css';
 
@@ -8,6 +8,7 @@ const Sidebar = ({ activeView, onViewChange, user, organization }) => {
         { id: 'incidents', label: 'Incidents', icon: Activity },
         { id: 'analytics', label: 'Analytics', icon: BarChart3 },
         { id: 'settings', label: 'Settings', icon: Settings },
+        { id: 'demo', label: 'Demo Merchant', icon: ExternalLink, external: true, path: '/demo.html' },
     ];
 
     return (
@@ -21,6 +22,20 @@ const Sidebar = ({ activeView, onViewChange, user, organization }) => {
             <nav className="sidebar-nav">
                 {navItems.map((item) => {
                     const Icon = item.icon;
+                    if (item.external) {
+                        return (
+                            <a
+                                key={item.id}
+                                href={item.path}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="nav-item"
+                            >
+                                <Icon size={18} />
+                                <span>{item.label}</span>
+                            </a>
+                        );
+                    }
                     return (
                         <button
                             key={item.id}

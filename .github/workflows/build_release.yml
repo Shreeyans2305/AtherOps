@@ -63,6 +63,12 @@ jobs:
         run: |
           cd Backend
           pyinstaller AtherOps.spec
+          # Rename output to match matrix asset_name
+          if [ "${{ runner.os }}" == "Windows" ]; then
+            mv dist/AtherOps.exe dist/${{ matrix.asset_name }}
+          else
+            mv dist/AtherOps dist/${{ matrix.asset_name }}
+          fi
 
       # Upload Release Asset
       - name: Upload Release Asset
