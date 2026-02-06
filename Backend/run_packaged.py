@@ -62,6 +62,16 @@ def configure_app():
     # /assets -> static/assets
     # / -> index.html
     
+    # Remove any existing root route (conflicts with SPA)
+    # The main.py likely has a @app.get("/") that returns JSON status.
+    # We want to remove that so our catch-all serves index.html at /
+    from fastapi.routing import APIRoute
+    for route in app.routes:
+        if isinstance(route, APIRoute) and route.path == "/":
+            app.routes.remove(route)
+            print("Removed existing root API route to serve Frontend instead.")
+            break
+
     app.mount("/assets", StaticFiles(directory=os.path.join(static_dir, "assets")), name="assets")
 
     # Catch-all route for SPA (React Router)
