@@ -2400,5 +2400,305 @@
       "error": null
     },
     "stored_at": "2026-02-01T08:43:40.882842+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.9,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "508a039d-c8f6-4e9a-8257-a49b4c0cf687",
+      "plan_id": "7f6e1e62-9c8b-49b2-9cd7-5405a8439666",
+      "status": "success",
+      "executed_at": "2026-02-02 21:28:24.416817",
+      "result_details": {
+        "emails_sent": 0,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+        "real_email": false,
+        "error": "No merchant email addresses provided"
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-02T15:58:24.417245+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "50f0a037-484f-46e3-975a-712cb6f67e61",
+      "plan_id": "fb05d6e4-58c3-4472-985d-7803c1f0fe71",
+      "status": "success",
+      "executed_at": "2026-02-03 19:38:15.805856",
+      "result_details": {
+        "emails_sent": 0,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+        "real_email": false,
+        "error": "No merchant email addresses provided"
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-03T14:08:15.806154+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "f261296a-5e37-4c56-9ed6-c88d67201514",
+      "plan_id": "24f0eeaa-1251-4e1b-aedc-dff28c5b2c17",
+      "status": "success",
+      "executed_at": "2026-02-06 19:02:19.894116",
+      "result_details": {
+        "emails_sent": 0,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+        "real_email": false,
+        "error": "No merchant email addresses provided"
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:32:19.894500+00:00"
+  },
+  {
+    "pattern_key": "ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+    "root_cause": "unknown",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "b42a3843-f22c-48b9-8828-28c428b7c363",
+      "plan_id": "ab02f2aa-f87f-4ad5-84bb-c07a71a323e3",
+      "status": "success",
+      "executed_at": "2026-02-06 19:03:30.103528",
+      "result_details": {
+        "ticket_id": "PLAT-784E6A",
+        "title": "[AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:33:30.103748+00:00"
+  },
+  {
+    "pattern_key": "ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+    "root_cause": "unknown",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "997fa6da-2a5d-4f66-9683-672414079e2b",
+      "plan_id": "a0fd5cb3-ed00-4082-a124-6d6f4a87fa28",
+      "status": "success",
+      "executed_at": "2026-02-06 19:03:47.192191",
+      "result_details": {
+        "ticket_id": "PLAT-55407A",
+        "title": "[AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:33:47.192366+00:00"
+  },
+  {
+    "pattern_key": "ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+    "root_cause": "unknown",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "c07dffeb-f18d-4b49-afd4-8196d38cec2b",
+      "plan_id": "49729e04-5c62-4ec8-901c-987123d8b847",
+      "status": "success",
+      "executed_at": "2026-02-06 19:03:59.551393",
+      "result_details": {
+        "ticket_id": "PLAT-60D564",
+        "title": "[AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:33:59.551746+00:00"
+  },
+  {
+    "pattern_key": "exact_match:api slow: http://localhost:8000/api/tickets",
+    "root_cause": "api version mismatch",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Api Slow: Http://Localhost:8000/Api/Tickets",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "4a51c4b0-3e3b-4d4a-b328-705e5ee1c0d6",
+      "plan_id": "0c068bfb-630d-48f8-a7eb-98bbda474ee8",
+      "status": "success",
+      "executed_at": "2026-02-06 19:04:11.997709",
+      "result_details": {
+        "emails_sent": 0,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Api Slow: Http://Localhost:8000/Api/Tickets",
+        "real_email": false,
+        "error": "No merchant email addresses provided"
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:34:11.997953+00:00"
+  },
+  {
+    "pattern_key": "exact_match:uncaught error: product price calculation failed -",
+    "root_cause": "merchant configuration errors",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "27c66dc5-a12e-425d-a9fd-e3d570382c44",
+      "plan_id": "1b861530-ea95-4ebc-9c71-36fc19006ce8",
+      "status": "success",
+      "executed_at": "2026-02-06 19:11:59.559234",
+      "result_details": {
+        "emails_sent": 0,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Uncaught Error: Product Price Calculation Failed -",
+        "real_email": false,
+        "error": "No merchant email addresses provided"
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:41:59.560000+00:00"
+  },
+  {
+    "pattern_key": "ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+    "root_cause": "unknown",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "7c0a6ae8-ea21-45ec-b7c2-10b133e6396e",
+      "plan_id": "146a02e8-6bfe-403d-bce1-854760ddd028",
+      "status": "success",
+      "executed_at": "2026-02-06 19:12:44.424987",
+      "result_details": {
+        "ticket_id": "PLAT-AF95AC",
+        "title": "[AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:42:44.425151+00:00"
+  },
+  {
+    "pattern_key": "ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+    "root_cause": "unknown",
+    "action_taken": "engineering_escalation",
+    "resolution": "engineering_escalation",
+    "confidence": 0.5,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "b454b695-5902-4fc5-b568-d6e41c0c7179",
+      "plan_id": "e9831947-6a34-4415-b4f1-53d0d5032c96",
+      "status": "success",
+      "executed_at": "2026-02-06 19:13:01.486427",
+      "result_details": {
+        "ticket_id": "PLAT-19E4B1",
+        "title": "[AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+        "priority": "critical",
+        "email_sent": true,
+        "email_result": {
+          "success": true,
+          "recipients": [
+            "shreeyans.vichare@gmail.com"
+          ],
+          "subject": "[ESCALATION] [AUTO-ESCALATION] ticket:[TICKET] CRITICAL: Payment Gateway Complete Failure: All payment transactions are failing with error code 503. Multiple merchants affected. Revenue loss is occurring. Immediate attention required.",
+          "simulated": false
+        }
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:43:01.486637+00:00"
+  },
+  {
+    "pattern_key": "exact_match:api slow: http://localhost:8000/api/tickets",
+    "root_cause": "api version mismatch",
+    "action_taken": "merchant_communication",
+    "resolution": "Action Required: Exact Match:Api Slow: Http://Localhost:8000/Api/Tickets",
+    "confidence": 0.8,
+    "affected_merchants": 1,
+    "execution_result": {
+      "execution_id": "b305dda9-a778-4768-9716-51303971bd84",
+      "plan_id": "b9e3aad8-0079-4cc6-ac2a-cd218fff3b43",
+      "status": "success",
+      "executed_at": "2026-02-06 19:13:27.081340",
+      "result_details": {
+        "emails_sent": 0,
+        "recipients": [
+          "store_demo_123"
+        ],
+        "subject": "Action Required: Exact Match:Api Slow: Http://Localhost:8000/Api/Tickets",
+        "real_email": false,
+        "error": "No merchant email addresses provided"
+      },
+      "error": null
+    },
+    "stored_at": "2026-02-06T13:43:27.081626+00:00"
   }
 ]
